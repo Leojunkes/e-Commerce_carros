@@ -1,25 +1,9 @@
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 
-const INITIAL_STATE=[
-    {
-    name: 'Audi',
-    url:
-      'https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-  },
-  {
-    name: 'Audi',
-    url:
-      'https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-  },
-  {
-    name: 'Audi',
-    url:
-      'https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-  },
-]
+import carsReducer from './cars';
 
-function reducer(state=INITIAL_STATE, action) {
-  return state;
-}
+const rootReducer = combineReducers({
+    cars:carsReducer
+})
 
-export default createStore(reducer);
+export default createStore(rootReducer);
