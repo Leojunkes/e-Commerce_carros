@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 import { addCar } from '../../store/cars';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { showMessage, hideMessage } from '../../store/layout';
 
 function Add() {
   const [form, setForm] = useState({ name: '', url: '' });
@@ -16,9 +16,11 @@ function Add() {
   function onSubmit(e) {
     e.preventDefault();
     d(addCar(form));
-    console.log(form);
-    localStorage.setItem('cars', JSON.stringify(form));
-    setForm(form);
+    setForm({ name: '', url: '' });
+    d(showMessage());
+    setTimeout(() => {
+      d(hideMessage());
+    }, 2500);
   }
   return (
     <Container>
@@ -45,11 +47,10 @@ function Add() {
             value={form.url}
           ></input>
         </div>
-        <Link to="/list">
-          <button type="submit" className="btn btn-primary">
-            Adicionar
-          </button>
-        </Link>
+
+        <button type="submit" className="btn btn-primary">
+          Adicionar
+        </button>
       </form>
     </Container>
   );
