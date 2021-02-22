@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 import { addCar } from '../../store/cars';
 import { useDispatch } from 'react-redux';
-import { showMessage, hideMessage } from '../../store/layout';
+import { Types, Creators } from '../../store/layout';
 
 function Add() {
   const [form, setForm] = useState({ name: '', url: '' });
@@ -17,13 +17,15 @@ function Add() {
     e.preventDefault();
     d(addCar(form));
     setForm({ name: '', url: '' });
-    d(showMessage());
+    d(Creators.showMessage());
     setTimeout(() => {
-      d(hideMessage());
+      d(Creators.hideMessage());
     }, 2500);
   }
   return (
     <Container>
+      <div className="container">
+        <div className="jumbotron">
       <form className="container-mt-5" onSubmit={onSubmit}>
         <div className="form-group">
           <label>Nome</label>
@@ -52,6 +54,8 @@ function Add() {
           Adicionar
         </button>
       </form>
+      </div>
+      </div>
     </Container>
   );
 }

@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { Container } from './styles';
 
 function List() {
-  const { cars } = useSelector((state) => state);
+  const cars  = useSelector((state) => state.cars);
 
   return (
     <Container>

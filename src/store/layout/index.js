@@ -13,10 +13,25 @@ export default (state = INITIAL_STATE, action) => {
       return state;
   }
 };
-export const showMessage = () => {
-  return { type: 'SHOW_MESSAGE' };
+
+//Actions Types
+export const Types = {
+  SHOW_MESSAGE: 'SHOW_MESSAGE',
+  HIDE_MESSAGE: 'HIDE_MESSAGE',
 };
 
-export const hideMessage = () => {
-  return { type: 'HIDE_MESSAGE' };
+//Actions Creators
+export const Creators = {
+  showMessage: () => {
+    return {
+      type: 'SHOW_MESSAGE',
+    };
+  },
+  hideMessage:()=>{
+    return{
+      type:'HIDE_MESSAGE'
+    }
+  }
 };
+
+
